@@ -1,0 +1,219 @@
+:root {
+  --button-color: #00401f;
+}
+
+html {
+  width: 100%;
+  height: 100%;
+  display: table;
+  margin: auto;
+}
+body {
+  height: 100%;
+  display: table-cell;
+  vertical-align: middle;
+  background: rgb(249,252,255);
+  background: radial-gradient(circle, rgba(249,252,255,0.7259278711484594) 0%, rgba(114,166,159,0.7931547619047619) 98%);
+}
+
+@media (min-width: 1400px) {
+  .container,
+  .container-lg,
+  .container-md,
+  .container-sm,
+  .container-xl,
+  .container-xxl {
+    max-width: 1000px !important;
+  }
+}
+
+#stadium {
+  border-radius: 8px;
+}
+
+#stadiumImage {
+  position: absolute;
+  top: 0;
+  left: 0;
+}
+
+img, .video-control-container {
+  border-radius: 8px;
+}
+
+span.live-icon{
+  display: inline-block;
+  position: relative;
+  background-color: red;
+  width: 10px;
+  height: 10px;
+  margin-left: 10px;
+  border: 1px solid rgba(black, .1);
+  border-radius: 50%;
+  z-index: 1;
+}
+
+span.live-icon::before {
+  content: '';
+  display: block;
+  position: absolute;
+  background: rgba(255, 0, 0, 0.6);
+  width: 100%;
+  height: 100%;
+  border-radius: 50%;
+  z-index: -1;
+}
+
+@keyframes live {
+  0% {
+    transform: scale(1,1);
+  }
+  100% {
+    transform: scale(2.2,2.2);
+    background: rgba(red,0);
+  }
+}
+
+.slide-container {
+  width: 100%;
+}
+
+.slider {
+  -webkit-appearance: none;
+  width: 100%;
+  height: 10px;
+  background: #f8f8f8;
+  outline: none;
+  -webkit-transition: .2s;
+  transition: opacity .2s;
+  border-radius: 3px;
+  cursor: pointer;
+}
+
+.slider:hover {
+  opacity: 1;
+}
+
+.slider::-webkit-slider-thumb {
+  -webkit-appearance: none;
+  appearance: none;
+  width: 20px;
+  height: 20px;
+  border-radius: 50%;
+  background: #00401f;
+  cursor: pointer;
+}
+
+.slider::-moz-range-thumb {
+  width: 20px;
+  height: 20px;
+  border-radius: 50%;
+  background: #aa2c23;
+  cursor: pointer;
+}
+
+#lblStartTime, #lblEndTime {
+  font-weight: 600;
+}
+
+#lblEndTime {
+  float: right;
+}
+
+#lblCurrentDate {
+  padding-right: 5px;
+  margin: auto;
+  font-size: 20px;
+  text-align: center;
+}
+
+#lblCurrentTime {
+  font-weight: 700;
+  font-size: 25px;
+  text-align: center;
+}
+
+.play-button-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 14px;
+  height: 14px;
+  padding: 17px;
+  border: 0.2rem solid var(--button-color);
+  border-radius: 50%;
+}
+
+.play {
+  height: 0;
+  width: 0;
+  margin: 0;
+  padding: 0;
+  margin-left: 4.8px;
+  /*margin-left: 17px;*/
+  background: none;
+  border: none;
+  border-top: 10.5px solid transparent;
+  border-bottom: 10.5px solid transparent;
+  border-left: 18px solid #00401f;
+}
+
+.pause {
+  position: relative;
+  background: none;
+  border: none;
+  height: 18px;
+  width: 28px;
+  margin: 0;
+  padding: 0;
+}
+
+.pause::before {
+  content: "";
+  position: absolute;
+  top: 0px;
+  height: 18px;
+  width: 5px;
+  margin-left: 2px;
+  background: var(--button-color);
+  left: 0;
+}
+
+.pause::after {
+  content: "";
+  position: absolute;
+  top: 0px;
+  height: 18px;
+  width: 5px;
+  margin-right: 2px;
+  background: var(--button-color);
+  right: 0;
+}
+
+.hidden {
+  display:none;
+}
+
+@media screen and (max-width: 480px) {
+  #lblCurrentDate {
+    width: 100%;
+    font-size: 15px;
+  }
+  #lblCurrentTime {
+    font-weight: 700;
+    font-size: 19px;
+  }
+  .btn-live, .btn-date-picker {
+    padding-left: 13px !important;
+    padding-right: 13px !important;
+    padding-top: 7px !important;
+    padding-bottom: 7px !important;
+    font-size: 1.1rem !important;
+  }
+}
+
+@media screen and (max-width: 400px) {
+  .label-container {
+    flex-direction: column;
+  }
+}
